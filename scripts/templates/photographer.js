@@ -1,9 +1,15 @@
-function photographerTemplate(data) {
+/**
+ * @param data
+ * @returns {{name, getUserCardDOM: (function(): HTMLElement), picture: string}}
+ */
+const photographerTemplate = data => {
     const { name, portrait } = data;
-
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
+    /**
+     * @returns {HTMLElement}
+     */
+    const getUserCardDOM = () => {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
@@ -12,6 +18,6 @@ function photographerTemplate(data) {
         article.appendChild(img);
         article.appendChild(h2);
         return (article);
-    }
+    };
     return { name, picture, getUserCardDOM }
-}
+};
