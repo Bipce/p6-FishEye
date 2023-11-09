@@ -1,47 +1,55 @@
 /**
- * @param data
+ * @param data {string}
  * @returns {{name, getUserCardDOM: (function(): HTMLElement), picture: string}}
  */
 const photographerTemplate = data => {
   const { name, id, city, country, tagline, price, portrait } = data;
   const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
 
-  /**
-   * @returns {HTMLElement}
-   */
   const getUserCardDOM = () => {
     const article = document.createElement("article");
-    article.className = "photographer_section__article";
+    setClassNameArticle(article, "");
     setAriaLabel(article, "article");
 
     const img = document.createElement("img");
-    img.className = "photographer_section__article__img";
+    setClassNameArticle(img, "__container__img");
     img.setAttribute("src", picture);
     img.setAttribute("alt", name);
     setAriaLabel(img, "image du photographe");
 
+    const imgContainer = document.createElement("div");
+    setAppendChild(imgContainer, img);
+    setClassNameArticle(imgContainer, "__container");
+
     const h2 = document.createElement("h2");
-    h2.className = "photographer_section__article__title";
-    h2.textContent = name;
+    setTextContent(h2, name);
+    setClassNameArticle(h2, "__title");
     setAriaLabel(h2, "nom du photographe");
 
     const p1 = document.createElement("p");
-    p1.textContent = `${country}, ${city}`;
+    setTextContent(p1, ` ${city}, ${country}`);
+    setClassNameArticle(p1, "__city");
     setAriaLabel(p1, "pays et ville du photographe");
 
     const p2 = document.createElement("p");
-    p2.textContent = tagline;
+    setTextContent(p2, tagline);
+    setClassNameArticle(p2, "__tagline");
     setAriaLabel(p2, "catchphrase du photographe");
 
     const p3 = document.createElement("p");
-    p3.textContent = `${price}€/jour`;
+    setTextContent(p3, `${price}€/jour`);
+    setClassNameArticle(p3, "__price");
     setAriaLabel(p3, "prix du photographe par jour");
 
-    article.appendChild(img);
-    article.appendChild(h2);
-    article.appendChild(p1);
-    article.appendChild(p2);
-    article.appendChild(p3);
+    const link = document.createElement("a");
+    link.href = "../../photographer.html";
+
+    setAppendChild(article, link);
+    setAppendChild(link, imgContainer);
+    setAppendChild(link, h2);
+    setAppendChild(article, p1);
+    setAppendChild(article, p2);
+    setAppendChild(article, p3);
 
     return (article);
   };
