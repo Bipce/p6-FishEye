@@ -1,57 +1,32 @@
-/**
- * @param data {string}
- * @returns {{name, getUserCardDOM: (function(): HTMLElement), picture: string}}
- */
-const photographerTemplate = data => {
-  const { name, id, city, country, tagline, price, portrait } = data;
-  const picture = `assets/photographers/Photographers ID Photos/${portrait}`;
+class Photographer {
+  constructor(data) {
+    this.name = data.name;
+    this.id = data.id;
+    this.city = data.city;
+    this.country = data.country;
+    this.tagline = data.tagline;
+    this.price = data.price;
+    this.portrait = data.portrait;
+  }
 
-  const getUserCardDOM = () => {
-    const article = document.createElement("article");
-    setClassNameArticle(article, "");
-    setAriaLabel(article, "article");
+  getUserCardDOM() {
+    return (`
+    <article class="photographer_section__article" aria-label="article">
+      <a href="../../photographer.html">
+        <div class="photographer_section__article__container">
+          <img class="photographer_section__article__container__img"
+               src="assets/photographers/Photographers ID Photos/${this.portrait}" alt="${this.name}"
+               aria-label="image du photographe">
+        </div>
+        <h2 class="photographer_section__article__title" aria-label="nom du photographe">${this.name}</h2>
+      </a>
+       <p class="photographer_section__article__city" aria-label="pays et ville du photographe"> ${this.city},
+        ${this.country}</p>
+      <p class="photographer_section__article__tagline" aria-label="catchphrase du photographe">${this.tagline}</p>
+      <p class="photographer_section__article__price" aria-label="prix du photographe par jour">${this.price}€/jour</p>
+    </article>
+    `);
 
-    const img = document.createElement("img");
-    setClassNameArticle(img, "__container__img");
-    img.setAttribute("src", picture);
-    img.setAttribute("alt", name);
-    setAriaLabel(img, "image du photographe");
 
-    const imgContainer = document.createElement("div");
-    setAppendChild(imgContainer, img);
-    setClassNameArticle(imgContainer, "__container");
-
-    const h2 = document.createElement("h2");
-    setTextContent(h2, name);
-    setClassNameArticle(h2, "__title");
-    setAriaLabel(h2, "nom du photographe");
-
-    const p1 = document.createElement("p");
-    setTextContent(p1, ` ${city}, ${country}`);
-    setClassNameArticle(p1, "__city");
-    setAriaLabel(p1, "pays et ville du photographe");
-
-    const p2 = document.createElement("p");
-    setTextContent(p2, tagline);
-    setClassNameArticle(p2, "__tagline");
-    setAriaLabel(p2, "catchphrase du photographe");
-
-    const p3 = document.createElement("p");
-    setTextContent(p3, `${price}€/jour`);
-    setClassNameArticle(p3, "__price");
-    setAriaLabel(p3, "prix du photographe par jour");
-
-    const link = document.createElement("a");
-    link.href = "../../photographer.html";
-
-    setAppendChild(article, link);
-    setAppendChild(link, imgContainer);
-    setAppendChild(link, h2);
-    setAppendChild(article, p1);
-    setAppendChild(article, p2);
-    setAppendChild(article, p3);
-
-    return (article);
-  };
-  return { name, picture, getUserCardDOM };
-};
+  }
+}

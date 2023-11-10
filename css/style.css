@@ -1,5 +1,6 @@
-@import "photographer-section.css";
-@import url("photographer.css");
+@import "header.css";
+@import "pages/home.css";
+@import "pages/photographer.css";
 
 *,
 *::before,
@@ -26,22 +27,4 @@ a::before,
 a:after,
 a {
     text-decoration: none;
-}
-
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 90px;
-}
-
-.header__logo {
-    height: 50px;
-    margin-left: 100px;
-}
-
-.header__title {
-    color: #901C1C;
-    margin-right: 100px;
 }
