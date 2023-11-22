@@ -1,15 +1,3 @@
-const getPhotographers = async () => {
-  const res = await fetch("../../data/photographers.json");
-  const data = await res.json();
-  const photographers = data.photographers;
-
-  if (!photographers) return null;
-
-  return ({
-    photographers: [...photographers],
-  });
-};
-
 const displayData = async (photographers) => {
   const photographersSection = document.querySelector(".photographer_section");
   photographers.forEach((photographer) => {
@@ -23,4 +11,5 @@ const init = async () => {
   await displayData(photographers);
 };
 
+// noinspection JSIgnoredPromiseFromCall
 init();

@@ -12,7 +12,7 @@ class Photographer {
   getUserCardDOM() {
     return (`
     <article class="photographer_section__article" aria-label="article">
-      <a href="../../photographer.html">
+      <a href="photographer.html?id=${this.id}" aria-label="lien vers la page du photographe">
         <div class="photographer_section__article__container">
           <img class="photographer_section__article__container__img"
                src="assets/photographers/Photographers ID Photos/${this.portrait}" alt="${this.name}"
@@ -26,7 +26,29 @@ class Photographer {
       <p class="photographer_section__article__price" aria-label="prix du photographe par jour">${this.price}€/jour</p>
     </article>
     `);
+  }
 
-
+  getUserCardDOMPage() {
+    return (`
+    <div class="photograph-header">
+      <div>
+        <h1>${this.name}</h1>
+        <p>${this.city}, ${this.country}</p>
+        <p>${this.tagline}</p>
+      </div>
+      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="Mimi Keel" width="200"
+           height="200">
+    </div>
+    
+    <nav>
+      <label for="filter">Trier par</label>
+       <select id="filter">
+         <option>Popularité</option>
+         <option>Date</option> 
+         <option>Titre</option>
+       </select>
+    </nav>
+    `);
   }
 }
