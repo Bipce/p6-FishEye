@@ -6,23 +6,17 @@ const displayData = async (photographers, medias) => {
   photographers.forEach((photographer) => {
     if (photographer.id === parseInt(id)) {
       const photographerModel = new Photographer(photographer);
-      photographersMain.innerHTML += photographerModel.getUserCardDOMPage();
+      photographersMain.innerHTML += photographerModel.getPhotographerDOMPage();
 
       const mediasSection = document.createElement("section");
       mediasSection.id = "medias-section";
-      // const asideCard = document.createElement("aside");
       medias.forEach((media) => {
         const mediaModel = new Media(media);
         if (media.photographerId === parseInt(id)) {
           mediasSection.innerHTML += mediaModel.getMediaCardDom();
         }
-        mediasSection.innerHTML += mediaModel.getAsideCard();
+        photographersMain.appendChild(mediasSection);
       });
-
-
-      photographersMain.appendChild(mediasSection);
-      photographersMain.innerHTML += new Media().getAsideCard();
-      // photographersMain.appendChild(asideCard);
     }
   });
 };

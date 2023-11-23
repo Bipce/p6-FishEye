@@ -14,29 +14,22 @@
 }
 
 .photographer_section__article__container {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 12px 0 #757575;
     margin-bottom: 25px;
     margin-inline: auto;
 }
 
 .photographer_section__article__container__img {
-    width: 100%;
-    height: 100%;
     scale: 1.2;
 }
 
 .photographer_section__article__title {
-    color: #D3573C;
+    color: var(--secondary-color);
     font-size: 2.25rem;
     font-weight: 400;
 }
 
 .photographer_section__article__city {
-    color: #901C1C;
+    color: var(--primary-color);
     font-size: 0.815rem;
 }
 

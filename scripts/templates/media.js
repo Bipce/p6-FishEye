@@ -13,20 +13,23 @@ class Media {
   getMediaCardDom() {
     return (`
       <a href="#">
-        <article>
-          <img src="./../assets/photographers/Mimi/${this.image}" alt="Animals_Rainbow" height="200" width="200">
+        <article id="article">
+         ${this.image ? `<img src="./../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}" height="200" width="200">`
+      : (`
+          <video controls height="200" width="200">
+            <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4"/>
+            <p>
+              Votre navigateur ne prend pas en charge les vidéos HTML5. Voici
+              <a href="../../assets/photographers/${this.photographerId}/${this.video}">un lien pour télécharger la vidéo</a>.
+            </p>
+          </video>`)}
+
           <div>
             <p>${this.title}</p>
-            <img src="../../assets/icons/heart.svg" alt="heart">
+            <p>${this.likes} <img src="../../assets/icons/heart.svg" alt="heart"></p>
           </div>
         </article>
       </a>
-    `);
-  }
-
-  getAsideCard() {
-    return (`
-    <aside>Test</aside>
     `);
   }
 }

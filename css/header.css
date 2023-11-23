@@ -12,6 +12,6 @@
 }
 
 .header__title {
-    color: #901C1C;
+    color: var(--primary-color);
     margin-right: 100px;
 }
