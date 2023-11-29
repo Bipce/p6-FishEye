@@ -43,8 +43,3 @@ class Photographer {
     `);
   }
 }
-
-// <aside class="aside">
-//   <p>297 081 <img src="../../assets/icons/heart.svg" alt="heart"></p>
-//   <p>${this.price}€/jour</p>
-// </aside>

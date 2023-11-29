@@ -2,4 +2,23 @@
     background-color: var(--tertiary-color);
     font-size: var(--large-text-size);
     font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    width: 376px;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    padding: 0.2rem 1.5rem;
+}
+
+.aside__container {
+    display: flex;
+    align-items: center;
+}
+
+.aside__container__heart {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
 }
