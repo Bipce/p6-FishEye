@@ -1,5 +1,8 @@
 @import "header.css";
 @import "components/photographerHeader.css";
+@import "components/photographerNav.css";
+@import "components/aside.css";
+@import "components/medias.css";
 @import "components/img.css";
 @import "pages/home.css";
 @import "pages/photographer.css";
@@ -7,6 +10,10 @@
 :root {
     --primary-color: #901C1C;
     --secondary-color: #D3573C;
+    --tertiary-color: #DB8876;
+
+    --large-text-size: 1.5rem;
+    --text-size: 1.125rem;
 }
 
 *,
@@ -35,4 +42,8 @@ a::before,
 a:after,
 a {
     text-decoration: none;
+}
+
+main {
+    padding-inline: 6.25rem;
 }

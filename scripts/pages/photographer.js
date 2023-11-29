@@ -1,30 +1,30 @@
 const params = new URL(document.location).searchParams;
 const id = params.get("id");
 
-const displayData = async (photographers, medias) => {
-  const photographersMain = document.getElementById("main");
-  photographers.forEach((photographer) => {
-    if (photographer.id === parseInt(id)) {
-      const photographerModel = new Photographer(photographer);
-      photographersMain.innerHTML += photographerModel.getPhotographerDOMPage();
+const displayPhotographer = (photographer) => {
 
-      const mediasSection = document.createElement("section");
-      mediasSection.id = "medias-section";
-      medias.forEach((media) => {
-        const mediaModel = new Media(media);
-        if (media.photographerId === parseInt(id)) {
-          mediasSection.innerHTML += mediaModel.getMediaCardDom();
-        }
-        photographersMain.appendChild(mediasSection);
-      });
+  console.log(photographer);
+  const photographersHeader = document.querySelector(".photograph-header");
+  const photographerModel = new Photographer(photographer);
+  photographersHeader.innerHTML += photographerModel.getPhotographerDOMPage();
+};
+
+const displayMedia = (medias) => {
+  const mediasSection = document.getElementById("medias-section");
+
+  medias.forEach((media) => {
+    const mediasFactory = new MediaFactory(media);
+    const mediaModel = mediasFactory.get();
+
+    if (media.photographerId === parseInt(id)) {
+      mediasSection.innerHTML += mediaModel.getMediaCardDom();
     }
   });
 };
 
 const init = async () => {
-  const { photographers } = await getPhotographers();
-  const { medias } = await getMedias();
-  await displayData(photographers, medias);
+  displayPhotographer(await getPhotographer(parseInt(id)));
+  displayMedia(await getMedias());
 };
 
 // noinspection JSIgnoredPromiseFromCall

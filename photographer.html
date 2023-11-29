@@ -16,6 +16,19 @@
 </header>
 
 <main id="main">
+  <div class="photograph-header" aria-label="header photographe">
+  </div>
+
+  <nav class="menu">
+    <label for="filter" class="menu__label">Trier par</label>
+    <select id="filter" class="menu__filter">
+      <option class="menu__filter__option">Popularité</option>
+      <option class="menu__filter__option">Date</option>
+      <option class="menu__filter__option">Titre</option>
+    </select>
+  </nav>
+
+  <section id="medias-section" class="medias-section"></section>
 </main>
 
 <div id="contact_modal">
@@ -36,8 +49,13 @@
 </div>
 
 <script src="scripts/utils/services.js"></script>
-<script src="scripts/templates/photographer.js"></script>
-<script src="scripts/templates/media.js"></script>
+
+<script src="scripts/templates/Photographer.js"></script>
+<script src="scripts/templates/Media.js"></script>
+<script src="scripts/templates/MediaFactory.js"></script>
+<script src="scripts/templates/Image.js"></script>
+<script src="scripts/templates/Video.js"></script>
+
 <script src="/scripts/pages/photographer.js"></script>
 <script src="/scripts/utils/contactForm.js"></script>
 </body>

@@ -1,11 +1,11 @@
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 2.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .photograph-header__info__title {
@@ -16,12 +16,12 @@
 }
 
 .photograph-header__info__location {
-    font-size: 1.5rem;
+    font-size: var(--large-text-size);
     color: var(--primary-color);
 }
 
 .photograph-header__info__tagline {
-    font-size: 0.88rem;
+    font-size: var(--text-size);
 }
 
 .photograph-header__img {

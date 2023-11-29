@@ -7,8 +7,7 @@ const displayData = async (photographers) => {
 };
 
 const init = async () => {
-  const { photographers } = await getPhotographers();
-  await displayData(photographers);
+  await displayData(await getPhotographers());
 };
 
 // noinspection JSIgnoredPromiseFromCall

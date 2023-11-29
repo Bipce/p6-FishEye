@@ -30,7 +30,6 @@ class Photographer {
 
   getPhotographerDOMPage() {
     return (`
-    <div class="photograph-header" aria-label="header photographe">
       <div class="photograph-header__info" aria-label="infos de ${this.name}">
         <h1 class="photograph-header__info__title">${this.name}</h1>
         <p class="photograph-header__info__location">${this.city}, ${this.country}</p>
@@ -41,21 +40,11 @@ class Photographer {
         <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="${this.name}" 
              class="photograph-header__img img" aria-label="image de ${this.name}">
       </div>
-    </div>
-    
-    <nav>
-      <label for="filter">Trier par</label>
-       <select id="filter">
-         <option>Popularité</option>
-         <option>Date</option> 
-         <option>Titre</option>
-       </select>
-    </nav>
-    
-    <aside>
-      <p>297 081 <img src="../../assets/icons/heart.svg" alt="heart"></p>
-      <p>${this.price}€/jour</p>
-    </aside>
     `);
   }
 }
+
+// <aside class="aside">
+//   <p>297 081 <img src="../../assets/icons/heart.svg" alt="heart"></p>
+//   <p>${this.price}€/jour</p>
+// </aside>
