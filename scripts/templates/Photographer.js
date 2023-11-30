@@ -14,9 +14,8 @@ class Photographer {
     <article class="photographer_section__article" aria-label="article">
       <a href="photographer.html?id=${this.id}" aria-label="lien vers la page de ${this.name}">
         <div class="photographer_section__article__container img-container">
-          <img class="photographer_section__article__container__img img "
-               src="assets/photographers/Photographers ID Photos/${this.portrait}" alt="${this.name}"
-               aria-label="image de ${this.name}">
+          <img class="photographer_section__article__container__img img" aria-label="image de ${this.name}"
+               src="assets/photographers/Photographers ID Photos/${this.portrait}" alt="${this.name}">
         </div>
         <h2 class="photographer_section__article__title" aria-label="nom du photographe">${this.name}</h2>
       </a>
@@ -35,7 +34,9 @@ class Photographer {
         <p class="photograph-header__info__location">${this.city}, ${this.country}</p>
         <p class="photograph-header__info__tagline">${this.tagline}</p>
       </div>
-      <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      
+      <button class="modal__button btn" onclick="displayModal()">Contactez-moi</button>
+      
       <div class="img-container">
         <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="${this.name}" 
              class="photograph-header__img img" aria-label="image de ${this.name}">

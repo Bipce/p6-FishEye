@@ -1,0 +1,9 @@
+.menu__label {
+    font-weight: 700;
+    font-size: var(--text-size);
+}
+
+.menu__filter {
+    font-size: var(--text-size);
+    outline: none;
+}

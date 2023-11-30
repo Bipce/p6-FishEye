@@ -9,43 +9,57 @@
 </head>
 
 <body>
-<header class="header">
-  <a href="./">
-    <img src="assets/images/logo.png" alt="logo" class="header__logo" />
-  </a>
-</header>
+<div id="main-wrapper">
+  <header id="header" class="header">
+    <a href="./">
+      <img src="assets/images/logo.png" alt="logo" class="header__logo" />
+    </a>
+  </header>
 
-<main id="main">
-  <div class="photograph-header" aria-label="header photographe">
-  </div>
+  <main id="main">
+    <div class="photograph-header" aria-label="header photographe">
+    </div>
 
-  <nav class="menu">
-    <label for="filter" class="menu__label">Trier par</label>
-    <select id="filter" class="menu__filter">
-      <option class="menu__filter__option">Popularité</option>
-      <option class="menu__filter__option">Date</option>
-      <option class="menu__filter__option">Titre</option>
-    </select>
-  </nav>
+    <nav class="menu">
+      <label for="filter" class="menu__label">Trier par</label>
+      <select id="filter" class="menu__filter btn">
+        <option class="menu__filter__option btn">Popularité</option>
+        <option class="menu__filter__option btn">Date</option>
+        <option class="menu__filter__option btn">Titre</option>
+      </select>
+    </nav>
 
-  <section id="medias-section" class="medias-section">
-    <aside id="aside" class="aside"></aside>
-  </section>
-</main>
+    <section id="medias-section" class="medias-section">
+      <aside id="aside" class="aside"></aside>
+    </section>
+  </main>
+</div>
 
-<div id="contact_modal">
+
+<div id="contact-modal">
   <div class="modal">
-    <header>
-      <h2>Contactez-moi</h2>
-      <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button">
+    <header class="modal__header">
+      <h1 class="modal__header__title">Contactez-moi Mimi Keel</h1>
+      <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" class="modal__header__btn">
     </header>
 
-    <form>
-      <div>
-        <label>Prénom</label>
-        <input />
+    <form class="modal__form">
+      <div role="group" aria-labelledby="coordonnées" class="modal__form__box">
+        <label for="firstName" class="modal__form__box__label">Prénom</label>
+        <input id="firstName" name="firstName" required aria-required="true" class="modal__form__box__input"
+               type="text" />
+
+        <label for="lastName" class="modal__form__box__label">Nom</label>
+        <input id="lastName" name="lastName" required aria-required="true" class="modal__form__box__input"
+               type="text" />
+
+        <label for="email" class="modal__form__box__label">Email</label>
+        <input id="email" name="email" required aria-required="true" class="modal__form__box__input" type="text" />
+
+        <label for="message" class="modal__form__box__label">Votre message</label>
+        <textarea id="message" name="message" class="modal__form__box__input modal__form__box__input--size"></textarea>
       </div>
-      <button class="contact_button">Envoyer</button>
+      <button class="modal__button btn">Envoyer</button>
     </form>
   </div>
 </div>
