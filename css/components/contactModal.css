@@ -1,5 +1,10 @@
 #contact-modal {
     display: none;
+    scrollbar-width: none;
+}
+
+#contact-modal::-webkit-scrollbar {
+    display: none;
 }
 
 .modal__button {
@@ -26,7 +31,7 @@
 }
 
 .modal__header__title {
-    font-size: 64px;
+    font-size: 58px;
     font-weight: normal;
     width: 80%;
     line-height: 1.2;
@@ -42,30 +47,38 @@
     display: flex;
     width: 100%;
     flex-direction: column;
-
-}
-
-.modal__form__box {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 26px;
 }
 
 .modal__form__box__label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: var(--large-text-size);
     line-height: 1.5;
 }
 
 .modal__form__box__input {
     width: 100%;
-    height: 68px;
+    height: 60px;
     border: none;
     border-radius: 5px;
-    font-size: var(--large-text-size);
+    font-size: var(--text-size);
     padding: 0 1rem;
+    outline: none;
+}
+
+.modal__form__message {
+    margin-bottom: 26px;
 }
 
 .modal__form__box__input--size {
-    height: 170px;
+    height: 150px;
+}
+
+.modal__form__box__input:invalid {
+    border: 2px solid var(--primary-color);
+    background-color: rgba(144, 28, 28, 0.3);
+}
+
+.modal__form__box__input:valid {
+    border: 2px solid green;
+    background-color: rgba(57, 234, 57, 0.3);
 }

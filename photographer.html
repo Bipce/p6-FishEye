@@ -39,25 +39,28 @@
 <div id="contact-modal">
   <div class="modal">
     <header class="modal__header">
-      <h1 class="modal__header__title">Contactez-moi Mimi Keel</h1>
+      <h2 id="modal__header__title" class="modal__header__title"></h2>
       <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" class="modal__header__btn">
     </header>
 
     <form class="modal__form">
-      <div role="group" aria-labelledby="coordonnées" class="modal__form__box">
+      <div role="group" aria-labelledby="coordonnées">
         <label for="firstName" class="modal__form__box__label">Prénom</label>
         <input id="firstName" name="firstName" required aria-required="true" class="modal__form__box__input"
-               type="text" />
+               type="text" minlength="2" maxlength="15" />
 
         <label for="lastName" class="modal__form__box__label">Nom</label>
         <input id="lastName" name="lastName" required aria-required="true" class="modal__form__box__input"
-               type="text" />
+               type="text" minlength="2" maxlength="15" />
 
         <label for="email" class="modal__form__box__label">Email</label>
-        <input id="email" name="email" required aria-required="true" class="modal__form__box__input" type="text" />
+        <input id="email" name="email" required aria-required="true" class="modal__form__box__input" type="email" />
+      </div>
 
+      <div role="group" aria-labelledby="message" class="modal__form__message">
         <label for="message" class="modal__form__box__label">Votre message</label>
-        <textarea id="message" name="message" class="modal__form__box__input modal__form__box__input--size"></textarea>
+        <textarea id="message" name="message" class="modal__form__box__input modal__form__box__input--size"
+                  required aria-required="true" minlength="10" maxlength="100"></textarea>
       </div>
       <button class="modal__button btn">Envoyer</button>
     </form>
@@ -73,6 +76,8 @@
 <script src="scripts/templates/Video.js"></script>
 
 <script src="/scripts/pages/photographer.js"></script>
-<script src="/scripts/utils/contactForm.js"></script>
+
+<script src="/scripts/modal/stateContactForm.js"></script>
+<script src="/scripts/modal/contactForm.js"></script>
 </body>
 </html>

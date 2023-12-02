@@ -44,11 +44,22 @@ const displayAside = (photographer, medias) => {
   aside.appendChild(price);
 };
 
+const displayNameContact = (photographer) => {
+  const nameTitle = document.getElementById("modal__header__title");
+  const nameTitleModel = new Photographer(photographer);
+
+  nameTitle.innerHTML += nameTitleModel.getNameContact();
+};
+
 
 const init = async () => {
-  displayPhotographer(await getPhotographer(parseInt(id)));
-  displayMedia(await getMedias());
-  displayAside(await getPhotographer(parseInt(id)), await getMedias());
+  const photographer = await getPhotographer(parseInt(id));
+  const medias = await getMedias();
+
+  displayPhotographer(photographer);
+  displayMedia(medias);
+  displayAside(photographer, medias);
+  displayNameContact(photographer);
 };
 
 // noinspection JSIgnoredPromiseFromCall

@@ -7,13 +7,8 @@ class Video extends Media {
   getMediaCardDom() {
     return (`
       <article id="article" class="medias-section__article">
-        <video controls class="medias-section__media" height="350" ">
-          <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4" />
-          <p>
-            Votre navigateur ne prend pas en charge les vidéos HTML5. Voici
-            <a href="../../assets/photographers/${this.photographerId}/${this.video}">un lien pour télécharger la
-              vidéo</a>.
-          </p>
+        <video controls class="medias-section__media">
+        <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4" />
       </video>
 
       <a href="#">

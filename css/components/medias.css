@@ -11,10 +11,10 @@
 }
 
 .medias-section__media {
-    max-width: 350px;
     width: 100%;
     height: 300px;
     border-radius: 5px;
+    object-fit: cover;
 }
 
 .medias-section__content {

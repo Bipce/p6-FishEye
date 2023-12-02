@@ -43,4 +43,10 @@ class Photographer {
       </div>
     `);
   }
+
+  getNameContact() {
+    return (`
+    Contactez-moi ${this.name}
+    `);
+  };
 }
