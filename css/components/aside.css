@@ -10,6 +10,7 @@
     bottom: 0;
     right: 30px;
     padding: 0.2rem 1.5rem;
+    z-index: 1;
 }
 
 .aside__container {

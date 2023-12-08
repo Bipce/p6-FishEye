@@ -20,11 +20,30 @@ const displayMedia = (medias) => {
   });
 };
 
+const initHearts = () => {
+  const hearts = document.querySelectorAll(".medias-section__content__heart");
+
+  hearts.forEach((heart, i) => heart.addEventListener("click", (e) => {
+    const isLiked = e.target.getAttribute("data-liked");
+    let heart = e.target;
+    let like = e.target.previousElementSibling;
+
+    if (isLiked === "true") {
+      like.textContent--;
+      heart.setAttribute("data-liked", false);
+    } else {
+      like.textContent++;
+      heart.setAttribute("data-liked", true);
+    }
+    getLikes();
+  }));
+};
+
 const displayAside = (photographer, medias) => {
   const aside = document.getElementById("aside");
 
   const likes = document.createElement("p");
-  likes.textContent = "297 081";
+  likes.className = "aside__container__likes";
 
   const heartImg = document.createElement("img");
   heartImg.src = "../../assets/icons/heart.svg";
@@ -51,7 +70,6 @@ const displayNameContact = (photographer) => {
   nameTitle.innerHTML += nameTitleModel.getNameContact();
 };
 
-
 const init = async () => {
   const photographer = await getPhotographer(parseInt(id));
   const medias = await getMedias();
@@ -60,6 +78,8 @@ const init = async () => {
   displayMedia(medias);
   displayAside(photographer, medias);
   displayNameContact(photographer);
+  initHearts();
+  getLikes();
 };
 
 // noinspection JSIgnoredPromiseFromCall
