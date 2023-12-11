@@ -8,11 +8,17 @@ const form = document.querySelector(".modal__form");
 const validate = (e) => {
   e.preventDefault();
 
-  if (firstName.value.length !== 0 && lastName.value.length !== 0 && email.value.length !== 0 && message.value.length !== 0) {
-    console.log(`First Name: ${firstName.value}`);
-    console.log(`Last Name: ${lastName.value}`);
-    console.log(`Email: ${email.value}`);
-    console.log(`Message: ${message.value}`);
+  const user = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    message: message.value,
+  };
+
+  const isUserValid = Object.keys(user).every((k) => user[k]);
+
+  if (isUserValid) {
+    console.log(user);
 
     form.reset();
   }
