@@ -18,4 +18,12 @@ class Image extends Media {
         </article>
     `);
   }
+
+  getMediaLightBox() {
+    return (`
+      <img src="./../../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}" 
+           class="lightBox__container__img">
+      <p class="lightBox__container__title">${this.title}</p>
+    `);
+  }
 }

@@ -1,11 +1,14 @@
 @import "header.css";
+
 @import "components/photographerHeader.css";
 @import "components/photographerMenu.css";
 @import "components/aside.css";
 @import "components/medias.css";
 @import "components/img.css";
 @import "components/contactModal.css";
+@import "components/lightBox.css";
 @import "components/btn.css";
+
 @import "pages/home.css";
 
 :root {

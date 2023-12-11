@@ -11,4 +11,8 @@ class Media {
   getMediaCardDom() {
     throw new Error("This is an abstract method and must be overridden.");
   }
+
+  getMediaLightBox() {
+    throw new Error("This is an abstract method and must be overridden.");
+  }
 }
