@@ -21,4 +21,14 @@ class Video extends Media {
     </article>
     `);
   }
+
+  getMediaLightBox() {
+    return (`
+      <video controls class="lightBox__slide__content__img">>
+      <source src="./../../assets/photographers/${this.photographerId}/${this.video}"
+              type="video/mp4"/>
+      </video>
+      <p class="lightBox__slide__content__title">${this.title}</p>
+    `);
+  }
 }

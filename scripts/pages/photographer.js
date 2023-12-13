@@ -61,8 +61,8 @@ const init = async () => {
   displayNameContact(photographer);
   initHearts();
   getLikes();
-  stateLightBox();
   displayLightBox(medias);
+  stateLightBox();
 };
 
 // noinspection JSIgnoredPromiseFromCall

@@ -15,6 +15,7 @@
     height: 300px;
     border-radius: 5px;
     object-fit: cover;
+    cursor: pointer;
 }
 
 .medias-section__content {

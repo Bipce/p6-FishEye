@@ -22,8 +22,8 @@ class Image extends Media {
   getMediaLightBox() {
     return (`
       <img src="./../../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}" 
-           class="lightBox__container__img">
-      <p class="lightBox__container__title">${this.title}</p>
+           class="lightBox__slide__content__img">
+      <p class="lightBox__slide__content__title">${this.title}</p>
     `);
   }
 }
