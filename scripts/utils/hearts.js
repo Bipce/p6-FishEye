@@ -1,7 +1,7 @@
 const initHearts = () => {
   const hearts = document.querySelectorAll(".medias-section__content__heart");
 
-  hearts.forEach((heart, i) => heart.addEventListener("click", (e) => {
+  hearts.forEach((heart) => heart.addEventListener("click", (e) => {
     const isLiked = e.target.getAttribute("data-liked");
     let heart = e.target;
     let like = e.target.previousElementSibling;

@@ -22,10 +22,10 @@
 
     <nav class="menu">
       <label for="filter" class="menu__label">Trier par</label>
-      <select id="filter" class="menu__filter btn">
-        <option class="menu__filter__option btn">Popularité</option>
-        <option class="menu__filter__option btn">Date</option>
-        <option class="menu__filter__option btn">Titre</option>
+      <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)">
+        <option class="menu__filter__option btn" value="popularity">Popularité</option>
+        <option class="menu__filter__option btn" value="date">Date</option>
+        <option class="menu__filter__option btn" value="title">Titre</option>
       </select>
     </nav>
 
@@ -78,6 +78,7 @@
 
 <script src="scripts/utils/services.js"></script>
 <script src="scripts/utils/hearts.js"></script>
+<script src="scripts/utils/filter.js"></script>
 
 <script src="scripts/templates/Photographer.js"></script>
 <script src="scripts/templates/Media.js"></script>
@@ -89,7 +90,6 @@
 
 <script src="/scripts/modal/stateContactForm.js"></script>
 <script src="/scripts/modal/contactForm.js"></script>
-<script src="/scripts/modal/stateLightBox.js"></script>
 <script src="/scripts/modal/lightBox.js"></script>
 </body>
 </html>

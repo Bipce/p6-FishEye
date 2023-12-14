@@ -9,6 +9,10 @@ const displayPhotographer = (photographer) => {
 
 const displayMedia = (medias) => {
   const mediasSection = document.getElementById("medias-section");
+  const aside = document.getElementById("aside");
+
+  mediasSection.innerHTML = "";
+  mediasSection.appendChild(aside);
 
   medias.forEach((media) => {
     const mediasFactory = new MediaFactory(media);
@@ -18,6 +22,10 @@ const displayMedia = (medias) => {
       mediasSection.innerHTML += mediaModel.getMediaCardDom();
     }
   });
+
+  initHearts();
+  displayLightBox(medias);
+  lightBox();
 };
 
 const displayAside = (photographer) => {
@@ -55,14 +63,15 @@ const init = async () => {
   const photographer = await getPhotographer(parseInt(id));
   const medias = await getMedias();
 
+  medias.sort((a, b) => {
+    return a.likes - b.likes;
+  });
+
   displayPhotographer(photographer);
   displayMedia(medias);
   displayAside(photographer, medias);
   displayNameContact(photographer);
-  initHearts();
   getLikes();
-  displayLightBox(medias);
-  stateLightBox();
 };
 
 // noinspection JSIgnoredPromiseFromCall
