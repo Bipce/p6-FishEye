@@ -11,7 +11,7 @@ class Photographer {
 
   getUserCardDOM() {
     return (`
-    <article class="photographer_section__article" aria-label="article">
+    <article class="photographer_section__article" aria-label="article ">
       <a href="photographer.html?id=${this.id}" aria-label="lien vers la page de ${this.name}">
         <div class="photographer_section__article__container img-container">
           <img class="photographer_section__article__container__img img" aria-label="image de ${this.name}"
@@ -29,13 +29,13 @@ class Photographer {
 
   getPhotographerDOMPage() {
     return (`
-      <div class="photograph-header__info" aria-label="infos de ${this.name}">
+      <div class="photograph-header__info" aria-label="infos de ${this.name}" tabindex="2">
         <h1 class="photograph-header__info__title">${this.name}</h1>
         <p class="photograph-header__info__location">${this.city}, ${this.country}</p>
         <p class="photograph-header__info__tagline">${this.tagline}</p>
       </div>
       
-      <button class="modal__button btn" onclick="displayModal()">Contactez-moi</button>
+      <button class="modal__button btn" onclick="displayModal()" tabindex="3">Contactez-moi</button>
       
       <div class="img-container">
         <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="${this.name}" 

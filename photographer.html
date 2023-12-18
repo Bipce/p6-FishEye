@@ -11,7 +11,7 @@
 <body>
 <div id="main-wrapper">
   <header id="header" class="header">
-    <a href="./">
+    <a href="./" tabindex="1">
       <img src="assets/images/logo.png" alt="logo" class="header__logo" />
     </a>
   </header>
@@ -22,7 +22,8 @@
 
     <nav class="menu">
       <label for="filter" class="menu__label">Trier par</label>
-      <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)">
+      <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)"
+              tabindex="4">
         <option class="menu__filter__option btn" value="popularity">Popularité</option>
         <option class="menu__filter__option btn" value="date">Date</option>
         <option class="menu__filter__option btn" value="title">Titre</option>
@@ -36,13 +37,6 @@
 </div>
 
 <div id="lightBox" class="lightBox">
-  <img src="assets/icons/previousMediaArrowLightBox.svg" alt="previous button"
-       class="lightBox__prevBtn img-btn">
-
-  <img src="assets/icons/nextMediaArrowLightBox.svg" alt="next button"
-       class="lightBox__nextBtn img-btn">
-
-  <img src="assets/icons/closeArrowLightBox.svg" alt="close button" class="lightBox__closeBtn img-btn">
 </div>
 
 <div id="contact-modal">

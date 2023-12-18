@@ -8,7 +8,7 @@ const displayLightBox = (medias) => {
     if (media.photographerId === parseInt(id)) {
       const container = document.createElement("div");
 
-      container.className = "lightBox__slide__content";
+      container.className = "lightBox__slide";
       container.setAttribute("isSelected", "false");
 
       lightBoxWrapper.appendChild(container);
@@ -20,10 +20,10 @@ const displayLightBox = (medias) => {
 const lightBox = () => {
   const medias = document.querySelectorAll(".medias-section__media");
   const mainWrapper = document.getElementById("main-wrapper");
-  const closeBtn = document.querySelector(".lightBox__closeBtn");
-  const lightBoxContainer = document.querySelectorAll(".lightBox__slide__content");
-  const nextArrow = document.querySelector(".lightBox__nextBtn");
-  const prevArrow = document.querySelector(".lightBox__prevBtn");
+  const closeBtn = document.querySelectorAll(".lightBox__slide__right-side__closeBtn__btn");
+  const lightBoxContainer = document.querySelectorAll(".lightBox__slide");
+  const prevArrow = document.querySelectorAll(".lightBox__slide__left-side__prevBtn");
+  const nextArrow = document.querySelectorAll(".lightBox__slide__right-side__nextBtn__btn");
 
   const updateMedia = (index) => {
     lightBoxContainer.forEach((media) => {
@@ -50,21 +50,21 @@ const lightBox = () => {
     mainWrapper.style.display = "none";
     lightBoxWrapper.style.display = "flex";
 
-    prevArrow.addEventListener("click", () => {
+    prevArrow.forEach((btn) => btn.addEventListener("click", () => {
       index--;
       if (index < 0) {
         index = lightBoxContainer.length - 1;
       }
       updateMedia(index);
-    });
+    }));
 
-    nextArrow.addEventListener("click", () => {
+    nextArrow.forEach((btn) => btn.addEventListener("click", () => {
       index++;
       if (index === lightBoxContainer.length) {
         index = 0;
       }
       updateMedia(index);
-    });
+    }));
   };
 
   const closeLightBox = () => {
@@ -78,5 +78,5 @@ const lightBox = () => {
   };
 
   medias.forEach((media) => media.addEventListener("click", (e) => openLightBox(e)));
-  closeBtn.addEventListener("click", () => closeLightBox());
+  closeBtn.forEach((btn) => btn.addEventListener("click", () => closeLightBox()));
 };
