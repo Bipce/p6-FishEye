@@ -6,7 +6,7 @@ class Image extends Media {
 
   getMediaCardDom() {
     return (`
-        <article id="article" class="medias-section__article">
+        <article id="article" class="medias-section__article" tabindex="5">
           <img src="./../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}"
                class="medias-section__media">
 
@@ -22,7 +22,7 @@ class Image extends Media {
   getMediaLightBox() {
     return (`
         <div class="lightBox__slide__left-side">
-          <img src="assets/icons/previousMediaArrowLightBox.svg" alt="previous button"
+          <img src="assets/icons/previousMediaArrowLightBox.svg" alt="bouton précédent"
                class="lightBox__slide__left-side__prevBtn img-btn ">
         </div>
         
@@ -34,12 +34,12 @@ class Image extends Media {
         
         <div class="lightBox__slide__right-side">
         <div class="lightBox__slide__right-side__closeBtn">
-          <img src="assets/icons/closeArrowLightBox.svg" alt="close button"
+          <img src="assets/icons/closeArrowLightBox.svg" alt="boutou fermer"
                class="lightBox__slide__right-side__closeBtn__btn img-btn"> 
         </div>
         
         <div class="lightBox__slide__right-side__nextBtn">
-          <img src="assets/icons/nextMediaArrowLightBox.svg" alt="next button"
+          <img src="assets/icons/nextMediaArrowLightBox.svg" alt="bouton suivant"
                class="lightBox__slide__right-side__nextBtn__btn img-btn">
         </div>
        </div>

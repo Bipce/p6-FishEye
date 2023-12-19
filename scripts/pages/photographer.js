@@ -36,7 +36,7 @@ const displayAside = (photographer) => {
 
   const heartImg = document.createElement("img");
   heartImg.src = "../../assets/icons/heart.svg";
-  heartImg.alt = "heart";
+  heartImg.alt = "likes";
   heartImg.className = "aside__container__heart";
 
   const divContainer = document.createElement("div");
@@ -47,6 +47,7 @@ const displayAside = (photographer) => {
   const price = document.createElement("p");
   price.className = "aside__price";
   price.textContent = `${photographer.price}€/jour`;
+  price.ariaLabel = `${photographer.price}€ par jour`;
 
   aside.appendChild(divContainer);
   aside.appendChild(price);

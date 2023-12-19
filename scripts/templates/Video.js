@@ -6,8 +6,8 @@ class Video extends Media {
 
   getMediaCardDom() {
     return (`
-      <article id="article" class="medias-section__article">
-        <video controls class="medias-section__media">
+      <article id="article" class="medias-section__article" tabindex="5">
+        <video controls class="medias-section__media" tabindex="5">
         <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4" />
       </video>
 

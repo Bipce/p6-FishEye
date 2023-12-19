@@ -24,12 +24,28 @@ const modalBgStyleModalClose = {
 };
 
 const displayModal = () => {
+  modalBg.setAttribute("aria-hidden", "true");
+  modalBg.tabIndex = 0;
+  modalBg.zIndex = 0;
+  modal.setAttribute("aria-hidden", "false");
   Object.assign(modal.style, modalStyle);
   Object.assign(modalBg.style, modalBgStyleModalOpen);
+
+  modalBg.addEventListener("keydown", closeModalEvent);
 };
 
-
 const closeModal = () => {
+  modalBg.setAttribute("aria-hidden", "false");
+  modal.setAttribute("aria-hidden", "true");
+
   modal.style.display = "none";
   Object.assign(modalBg.style, modalBgStyleModalClose);
+
+  modalBg.removeEventListener("keydown", closeModalEvent);
+};
+
+const closeModalEvent = (e) => {
+  if (e.key === "Escape") {
+    closeModal();
+  }
 };

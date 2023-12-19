@@ -17,33 +17,35 @@
   </header>
 
   <main id="main">
-    <div class="photograph-header" aria-label="header photographe">
+    <div class="photograph-header">
     </div>
 
     <nav class="menu">
       <label for="filter" class="menu__label">Trier par</label>
       <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)"
-              tabindex="4">
-        <option class="menu__filter__option btn" value="popularity">Popularité</option>
-        <option class="menu__filter__option btn" value="date">Date</option>
-        <option class="menu__filter__option btn" value="title">Titre</option>
+              tabindex="4" aria-label="trier par: popularité, date ou titre">
+        <option class="menu__filter__option btn" value="popularity" aria-label="trier par popularité">Popularité
+        </option>
+        <option class="menu__filter__option btn" value="date" aria-label="trier par date">Date</option>
+        <option class="menu__filter__option btn" value="title" aria-label="trier par titre">Titre</option>
       </select>
     </nav>
 
     <section id="medias-section" class="medias-section">
-      <aside id="aside" class="aside"></aside>
+      <aside id="aside" class="aside" tabindex="6"></aside>
     </section>
   </main>
 </div>
 
-<div id="lightBox" class="lightBox">
+<div id="lightBox" class="lightBox" aria-hidden="true">
 </div>
 
-<div id="contact-modal">
+<div id="contact-modal" aria-hidden="true" role="dialog" tabindex="1">
   <div class="modal">
     <header class="modal__header">
-      <h2 id="modal__header__title" class="modal__header__title"></h2>
-      <img src="assets/icons/close.svg" onclick="closeModal()" alt="close button" class="modal__header__btn">
+      <h2 id="modal__header__title" class="modal__header__title" tabindex="1"></h2>
+      <img src="assets/icons/close.svg" onclick="closeModal(this.keyCode)" alt="close button"
+           class="modal__header__btn">
     </header>
 
     <form class="modal__form">
