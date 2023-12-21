@@ -1,4 +1,4 @@
-.photograph-header {
+.photographer-header {
     background-color: #FAFAFA;
     height: 300px;
     display: flex;
@@ -8,22 +8,22 @@
     margin-bottom: 1.5rem;
 }
 
-.photograph-header__info__title {
+.photographer-header__info__title {
     font-size: 4rem;
     color: var(--secondary-color);
     font-weight: 400;
     line-height: 1;
 }
 
-.photograph-header__info__location {
+.photographer-header__info__location {
     font-size: var(--large-text-size);
     color: var(--primary-color);
 }
 
-.photograph-header__info__tagline {
+.photographer-header__info__tagline {
     font-size: var(--text-size);
 }
 
-.photograph-header__img {
+.photographer-header__img {
     scale: 1.5;
 }

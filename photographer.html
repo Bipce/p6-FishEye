@@ -11,19 +11,19 @@
 <body>
 <div id="main-wrapper">
   <header id="header" class="header">
-    <a href="./" tabindex="1">
-      <img src="assets/images/logo.png" alt="logo" class="header__logo" />
+    <a href="./" aria-label="lien vers la page d'accueil" class="header__link">
+      <img src="assets/images/logo.png" alt="logo" class="header__link__logo" />
     </a>
   </header>
 
   <main id="main">
-    <div class="photograph-header">
-    </div>
+    <section class="photographer-header">
+    </section>
 
     <nav class="menu">
       <label for="filter" class="menu__label">Trier par</label>
       <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)"
-              tabindex="4" aria-label="trier par: popularité, date ou titre">
+              aria-label="trier par: popularité, date ou titre">
         <option class="menu__filter__option btn" value="popularity" aria-label="trier par popularité">Popularité
         </option>
         <option class="menu__filter__option btn" value="date" aria-label="trier par date">Date</option>
@@ -31,8 +31,11 @@
       </select>
     </nav>
 
+    <div class="lightBox__slide__left-side">
+    </div>
+
     <section id="medias-section" class="medias-section">
-      <aside id="aside" class="aside" tabindex="6"></aside>
+      <aside id="aside" class="aside"></aside>
     </section>
   </main>
 </div>
@@ -40,11 +43,11 @@
 <div id="lightBox" class="lightBox" aria-hidden="true">
 </div>
 
-<div id="contact-modal" aria-hidden="true" role="dialog" tabindex="1">
+<div id="contact-modal" aria-hidden="true" role="dialog">
   <div class="modal">
     <header class="modal__header">
-      <h2 id="modal__header__title" class="modal__header__title" tabindex="1"></h2>
-      <img src="assets/icons/close.svg" onclick="closeModal(this.keyCode)" alt="close button"
+      <h2 id="modal__header__title" class="modal__header__title" tabindex="0"></h2>
+      <img src="assets/icons/close.svg" alt="bouton fermé" tabindex="0" onclick="closeModal(this.keyCode)"
            class="modal__header__btn">
     </header>
 

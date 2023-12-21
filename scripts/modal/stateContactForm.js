@@ -1,5 +1,10 @@
 const modal = document.getElementById("contact-modal");
 const modalBg = document.getElementById("main-wrapper");
+const closeBtn = document.querySelector(".modal__header__btn");
+const homeLink = document.querySelector(".header__link");
+const photographerHeader = document.querySelector(".photographer-header");
+const menu = document.getElementById("filter");
+const mediasSection = document.getElementById("medias-section");
 
 const modalStyle = {
   display: "block",
@@ -24,14 +29,27 @@ const modalBgStyleModalClose = {
 };
 
 const displayModal = () => {
+  const photographerInfo = photographerHeader.children[0];
+
   modalBg.setAttribute("aria-hidden", "true");
-  modalBg.tabIndex = 0;
-  modalBg.zIndex = 0;
   modal.setAttribute("aria-hidden", "false");
   Object.assign(modal.style, modalStyle);
   Object.assign(modalBg.style, modalBgStyleModalOpen);
 
-  modalBg.addEventListener("keydown", closeModalEvent);
+  homeLink.tabIndex = -1;
+  menu.tabIndex = -1;
+  photographerInfo.tabIndex = -1;
+  mediasSection.children.tabIndex = -1;
+
+  for (let media of mediasSection.children) {
+    if (media.id === "article") {
+      media.children[0].tabIndex = -1;
+    }
+  }
+
+  modal.addEventListener("keydown", closeModalEscapeKey);
+  modalBg.addEventListener("keydown", closeModalEscapeKey);
+  closeBtn.addEventListener("keydown", closeModalEnterKey);
 };
 
 const closeModal = () => {
@@ -41,11 +59,18 @@ const closeModal = () => {
   modal.style.display = "none";
   Object.assign(modalBg.style, modalBgStyleModalClose);
 
-  modalBg.removeEventListener("keydown", closeModalEvent);
+  modalBg.removeEventListener("keydown", closeModalEscapeKey);
 };
 
-const closeModalEvent = (e) => {
+const closeModalEscapeKey = (e) => {
   if (e.key === "Escape") {
     closeModal();
   }
 };
+
+const closeModalEnterKey = (e) => {
+  if (e.key === "Enter") {
+    closeModal();
+  }
+};
+

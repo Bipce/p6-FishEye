@@ -7,9 +7,12 @@
     margin: 2rem 0 1rem;
 }
 
-.header__logo {
-    height: 50px;
+.header__link {
     margin-left: 100px;
+}
+
+.header__link__logo {
+    height: 50px;
 }
 
 .header__title {

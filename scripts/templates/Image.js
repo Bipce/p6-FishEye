@@ -6,14 +6,14 @@ class Image extends Media {
 
   getMediaCardDom() {
     return (`
-        <article id="article" class="medias-section__article" tabindex="5">
-          <img src="./../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}"
-               class="medias-section__media">
+        <article id="article" class="medias-section__article">
+          <img src="./../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}" tabindex="0"
+               class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour aggrandir">
 
           <div class="medias-section__content">
             <p class="medias-section__content__title">${this.title}</p>
             <p id="likes">${this.likes}</p>
-            <img src="../../assets/icons/heart_red.svg" alt="heart" class="medias-section__content__heart" data-liked="false">
+            <img src="../../assets/icons/heart_red.svg" alt="likes" class="medias-section__content__heart" data-liked="false">
           </div>
         </article>
     `);
@@ -21,12 +21,14 @@ class Image extends Media {
 
   getMediaLightBox() {
     return (`
-        <div class="lightBox__slide__left-side">
-          <img src="assets/icons/previousMediaArrowLightBox.svg" alt="bouton précédent"
-               class="lightBox__slide__left-side__prevBtn img-btn ">
+        <div class="lightBox__slide__left-side" >
+          <button aria-label="passer au média précedent">
+            <img src="assets/icons/previousMediaArrowLightBox.svg" alt="bouton précédent"
+                 class="lightBox__slide__left-side__prevBtn img-btn">
+          </button>
         </div>
         
-        <div class="lightBox__slide__content">
+        <div class="lightBox__slide__content" tabindex="0" aria-label="${this.title}">
           <img src="./../../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}"
                class="lightBox__slide__content__media">
           <p class="lightBox__slide__content__title">${this.title}</p>
@@ -34,13 +36,17 @@ class Image extends Media {
         
         <div class="lightBox__slide__right-side">
         <div class="lightBox__slide__right-side__closeBtn">
-          <img src="assets/icons/closeArrowLightBox.svg" alt="boutou fermer"
-               class="lightBox__slide__right-side__closeBtn__btn img-btn"> 
+          <button aria-label="fermer le carroussel">
+            <img src="assets/icons/closeArrowLightBox.svg" alt="boutou fermer"
+                 class="lightBox__slide__right-side__closeBtn__btn img-btn">
+          </button>
         </div>
         
         <div class="lightBox__slide__right-side__nextBtn">
-          <img src="assets/icons/nextMediaArrowLightBox.svg" alt="bouton suivant"
-               class="lightBox__slide__right-side__nextBtn__btn img-btn">
+          <button aria-label="passer au prochain média">
+            <img src="assets/icons/nextMediaArrowLightBox.svg" alt="bouton suivant"
+                 class="lightBox__slide__right-side__nextBtn__btn img-btn">
+          </button>
         </div>
        </div>
  

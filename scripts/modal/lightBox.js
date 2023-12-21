@@ -39,7 +39,8 @@ const lightBox = () => {
     let index = 0;
 
     lightBoxContainer.forEach((item, key) => {
-      const title = item.children[0].alt;
+      const title = item.children[1].children[0].alt;
+
       if (media.alt === title) {
         index = key;
       }
@@ -47,16 +48,24 @@ const lightBox = () => {
     updateMedia(index);
 
     mainWrapper.setAttribute("aria-hidden", "true");
+    lightBoxWrapper.setAttribute("aria-hidden", "false");
     mainWrapper.style.display = "none";
     lightBoxWrapper.style.display = "flex";
 
     prevArrow.forEach((btn) => btn.addEventListener("click", () => {
-      index--;
-      if (index < 0) {
-        index = lightBoxContainer.length - 1;
-      }
-      updateMedia(index);
     }));
+
+    prevArrow.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        index--;
+        if (index < 0) {
+          index = lightBoxContainer.length - 1;
+        }
+        updateMedia(index);
+      });
+
+      btn.addEventListener("keydown", () => console.log("test"));
+    });
 
     nextArrow.forEach((btn) => btn.addEventListener("click", () => {
       index++;
@@ -75,8 +84,23 @@ const lightBox = () => {
     lightBoxContainer.forEach((item) => {
       item.setAttribute("isSelected", "false");
     });
+
+    lightBoxWrapper.removeEventListener("keydown", closeModalEscapeKey);
   };
 
   medias.forEach((media) => media.addEventListener("click", (e) => openLightBox(e)));
   closeBtn.forEach((btn) => btn.addEventListener("click", () => closeLightBox()));
+
+  const closeModalEscapeKey = (e) => {
+    if (e.key === "Escape") {
+      closeLightBox();
+    }
+  };
+
+  const closeModalEnterKey = (e) => {
+    if (e.key === "Enter") {
+      closeLightBox();
+    }
+  };
 };
+

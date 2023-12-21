@@ -6,18 +6,16 @@ class Video extends Media {
 
   getMediaCardDom() {
     return (`
-      <article id="article" class="medias-section__article" tabindex="5">
-        <video controls class="medias-section__media" tabindex="5">
+      <article id="article" class="medias-section__article">
+        <video controls class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour aggrandir">
         <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4" />
       </video>
 
-      <a href="#">
         <div class="medias-section__content">
           <p class="medias-section__content__title">${this.title}</p>
           <p>${this.likes}</p>
-          <img src="../../assets/icons/heart.svg" alt="heart" class="medias-section__content__heart">
+          <img src="../../assets/icons/heart_red.svg" alt="heart" class="medias-section__content__heart">
         </div>
-      </a>
     </article>
     `);
   }
@@ -25,8 +23,10 @@ class Video extends Media {
   getMediaLightBox() {
     return (`
         <div class="lightBox__slide__left-side">
-          <img src="assets/icons/previousMediaArrowLightBox.svg" alt="previous button"
-               class="lightBox__slide__left-side__prevBtn img-btn ">
+          <button>
+            <img src="assets/icons/previousMediaArrowLightBox.svg" alt="bouton précédent"
+                 class="lightBox__slide__left-side__prevBtn img-btn ">
+          </button>
         </div>
         
         <div class="lightBox__slide__content">
@@ -39,13 +39,17 @@ class Video extends Media {
         
         <div class="lightBox__slide__right-side">
         <div class="lightBox__slide__right-side__closeBtn">
-          <img src="assets/icons/closeArrowLightBox.svg" alt="close button"
-               class="lightBox__slide__right-side__closeBtn__btn img-btn"> 
+          <button>
+            <img src="assets/icons/closeArrowLightBox.svg" alt="boutou fermer"
+                 class="lightBox__slide__right-side__closeBtn__btn img-btn">
+          </button> 
         </div>
         
         <div class="lightBox__slide__right-side__nextBtn">
-          <img src="assets/icons/nextMediaArrowLightBox.svg" alt="next button"
-               class="lightBox__slide__right-side__nextBtn__btn img-btn">
+          <button>
+            <img src="assets/icons/nextMediaArrowLightBox.svg" alt="bouton suivant"
+                 class="lightBox__slide__right-side__nextBtn__btn img-btn">
+          </button>
         </div>
        </div>
      

@@ -2,7 +2,7 @@ const params = new URL(document.location).searchParams;
 const id = params.get("id");
 
 const displayPhotographer = (photographer) => {
-  const photographersHeader = document.querySelector(".photograph-header");
+  const photographersHeader = document.querySelector(".photographer-header");
   const photographerModel = new Photographer(photographer);
   photographersHeader.innerHTML += photographerModel.getPhotographerDOMPage();
 };

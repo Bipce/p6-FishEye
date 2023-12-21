@@ -12,7 +12,7 @@ class Photographer {
   getUserCardDOM() {
     return (`
     <article class="photographer_section__article">
-      <a href="photographer.html?id=${this.id}" tabindex="2"
+      <a href="photographer.html?id=${this.id}"
          aria-label="lien vers la page de ${this.name}, ${this.city}, ${this.country},
                     ${this.tagline}, ${this.price}€ par jour">
         <div class="photographer_section__article__container img-container">
@@ -30,18 +30,18 @@ class Photographer {
 
   getPhotographerDOMPage() {
     return (`
-      <div class="photograph-header__info" aria-label="${this.name}, ${this.city} ${this.country}, ${this.tagline}"
-           tabindex="2">
-        <h1 class="photograph-header__info__title">${this.name}</h1>
-        <p class="photograph-header__info__location">${this.city}, ${this.country}</p>
-        <p class="photograph-header__info__tagline">${this.tagline}</p>
+      <div class="photographer-header__info" aria-label="${this.name}, ${this.city} ${this.country}, ${this.tagline}"
+          tabindex="0">
+        <h1 class="photographer-header__info__title">${this.name}</h1>
+        <p class="photographer-header__info__location">${this.city}, ${this.country}</p>
+        <p class="photographer-header__info__tagline">${this.tagline}</p>
       </div>
       
-      <button class="modal__button btn" onclick="displayModal()" tabindex="3">Contactez-moi</button>
+      <button class="modal__button btn" onclick="displayModal()">Contactez-moi</button>
       
       <div class="img-container">
         <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="${this.name}" 
-             class="photograph-header__img img">
+             class="photographer-header__img img">
       </div>
     `);
   }
