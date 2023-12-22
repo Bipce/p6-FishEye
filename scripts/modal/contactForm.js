@@ -15,12 +15,10 @@ const validate = (e) => {
     message: message.value,
   };
 
-  const isUserValid = Object.keys(user).every((k) => user[k]);
+  const isValid = [firstName, lastName, email, message].every(value => value.checkValidity());
 
-  if (isUserValid) {
+  if (isValid) {
     console.log(user);
-
-    form.reset();
   }
 };
 

@@ -52,9 +52,6 @@ const lightBox = () => {
     mainWrapper.style.display = "none";
     lightBoxWrapper.style.display = "flex";
 
-    prevArrow.forEach((btn) => btn.addEventListener("click", () => {
-    }));
-
     prevArrow.forEach((btn) => {
       btn.addEventListener("click", () => {
         index--;
@@ -63,8 +60,6 @@ const lightBox = () => {
         }
         updateMedia(index);
       });
-
-      btn.addEventListener("keydown", () => console.log("test"));
     });
 
     nextArrow.forEach((btn) => btn.addEventListener("click", () => {
@@ -89,18 +84,7 @@ const lightBox = () => {
   };
 
   medias.forEach((media) => media.addEventListener("click", (e) => openLightBox(e)));
-  closeBtn.forEach((btn) => btn.addEventListener("click", () => closeLightBox()));
-
-  const closeModalEscapeKey = (e) => {
-    if (e.key === "Escape") {
-      closeLightBox();
-    }
-  };
-
-  const closeModalEnterKey = (e) => {
-    if (e.key === "Enter") {
-      closeLightBox();
-    }
-  };
+  closeBtn.forEach((btn) =>
+    btn.addEventListener("click", closeLightBox));
 };
 

@@ -1,6 +1,6 @@
 const modal = document.getElementById("contact-modal");
 const modalBg = document.getElementById("main-wrapper");
-const closeBtn = document.querySelector(".modal__header__btn");
+const closeBtn = document.getElementById("close-btn__contact-modal");
 const homeLink = document.querySelector(".header__link");
 const photographerHeader = document.querySelector(".photographer-header");
 const menu = document.getElementById("filter");
@@ -50,6 +50,7 @@ const displayModal = () => {
   modal.addEventListener("keydown", closeModalEscapeKey);
   modalBg.addEventListener("keydown", closeModalEscapeKey);
   closeBtn.addEventListener("keydown", closeModalEnterKey);
+  closeBtn.addEventListener("click", closeModal);
 };
 
 const closeModal = () => {

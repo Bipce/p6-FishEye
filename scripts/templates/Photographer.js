@@ -50,5 +50,5 @@ class Photographer {
     return (`
     Contactez-moi ${this.name}
     `);
-  };
+  }
 }
