@@ -22,10 +22,11 @@ const displayMedia = (medias) => {
       mediasSection.innerHTML += mediaModel.getMediaCardDom();
     }
   });
+  
+  const photographerMedias = medias.filter((x) => x.photographerId === parseInt(id));
 
   initHearts();
-  displayLightBox(medias);
-  lightBox();
+  initLightBox(photographerMedias);
 };
 
 const displayAside = (photographer) => {

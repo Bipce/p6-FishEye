@@ -4,6 +4,9 @@
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <title>Fisheye - photographe </title>
 </head>
@@ -31,9 +34,6 @@
       </select>
     </nav>
 
-    <div class="lightBox__slide__left-side">
-    </div>
-
     <section id="medias-section" class="medias-section">
       <aside id="aside" class="aside"></aside>
     </section>
@@ -41,6 +41,30 @@
 </div>
 
 <div id="lightBox" class="lightBox" aria-hidden="true">
+  <div class="lightBox__left-side">
+    <button aria-label="passer au média précedent">
+      <img src="assets/icons/previousMediaArrowLightBox.svg" alt="bouton précédent"
+           class="lightBox__left-side__prevBtn img-btn">
+    </button>
+  </div>
+
+  <div id="lightBox__slide" class="lightBox__slide"></div>
+
+  <div class="lightBox__right-side">
+    <div class="lightBox__right-side__closeBtn">
+      <button aria-label="fermer le carousel">
+        <img src="assets/icons/closeArrowLightBox.svg" alt="bouton fermer"
+             class="lightBox__right-side__closeBtn__btn img-btn">
+      </button>
+    </div>
+
+    <div class="lightBox__right-side__nextBtn">
+      <button aria-label="passer au prochain média">
+        <img src="assets/icons/nextMediaArrowLightBox.svg" alt="bouton suivant"
+             class="lightBox__slide__right-side__nextBtn__btn img-btn">
+      </button>
+    </div>
+  </div>
 </div>
 
 <div id="contact-modal" aria-hidden="true" role="dialog">
@@ -78,6 +102,7 @@
   </div>
 </div>
 
+<script src="scripts/utils/variables.js"></script>
 <script src="scripts/utils/services.js"></script>
 <script src="scripts/utils/hearts.js"></script>
 <script src="scripts/utils/filter.js"></script>

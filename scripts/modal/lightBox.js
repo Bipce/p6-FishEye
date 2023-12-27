@@ -1,90 +1,72 @@
 const lightBoxWrapper = document.getElementById("lightBox");
+const mainWrapper = document.getElementById("main-wrapper");
+const lightBoxContent = document.getElementById("lightBox__slide");
+const closeLightBoxBtn = document.querySelector(".lightBox__right-side__closeBtn__btn");
+const prevBtn = document.querySelector(".lightBox__left-side__prevBtn");
+const nextBtn = document.querySelector(".lightBox__right-side__nextBtn");
 
-const displayLightBox = (medias) => {
-  medias.forEach((media) => {
-    const lightBoxFactory = new MediaFactory(media);
-    const lightBoxModel = lightBoxFactory.get();
-
-    if (media.photographerId === parseInt(id)) {
-      const container = document.createElement("div");
-
-      container.className = "lightBox__slide";
-      container.setAttribute("isSelected", "false");
-
-      lightBoxWrapper.appendChild(container);
-      container.innerHTML += lightBoxModel.getMediaLightBox();
-    }
-  });
+const initLightBox = (medias) => {
+  const mediasEl = document.querySelectorAll(".medias-section__media");
+  mediasEl.forEach((media) => media.addEventListener("click", (e) => openLightBox(e.target, medias)));
 };
 
-const lightBox = () => {
-  const medias = document.querySelectorAll(".medias-section__media");
-  const mainWrapper = document.getElementById("main-wrapper");
-  const closeBtn = document.querySelectorAll(".lightBox__slide__right-side__closeBtn__btn");
-  const lightBoxContainer = document.querySelectorAll(".lightBox__slide");
-  const prevArrow = document.querySelectorAll(".lightBox__slide__left-side__prevBtn");
-  const nextArrow = document.querySelectorAll(".lightBox__slide__right-side__nextBtn__btn");
+const openLightBox = (mediaElement, medias) => {
+  mainWrapper.setAttribute("aria-hidden", "true");
+  lightBoxWrapper.setAttribute("aria-hidden", "false");
+  mainWrapper.style.display = "none";
+  lightBoxWrapper.style.display = "flex";
+  lightBoxWrapper.tabIndex = 0;
 
-  const updateMedia = (index) => {
-    lightBoxContainer.forEach((media) => {
-      media.setAttribute("isSelected", "false");
-    });
+  const updateMedia = () => {
+    let lightBoxFactory = new MediaFactory(medias[index]);
+    let lightBoxModel = lightBoxFactory.get();
 
-    const currentMedia = lightBoxContainer[index];
-    currentMedia.setAttribute("isSelected", "true");
+    lightBoxContent.innerHTML = lightBoxModel.getMediaLightBox();
   };
 
-  const openLightBox = (e) => {
-    const media = e.target;
-    let index = 0;
+  let index = medias.findIndex((element) => element.id === parseInt(mediaElement.id));
+  updateMedia();
 
-    lightBoxContainer.forEach((item, key) => {
-      const title = item.children[1].children[0].alt;
+  const prev = () => {
+    index--;
+    if (index < 0) {
+      index = medias.length - 1;
+    }
+    updateMedia();
+  };
 
-      if (media.alt === title) {
-        index = key;
-      }
-    });
-    updateMedia(index);
+  const next = () => {
+    index++;
+    if (index > medias.length - 1) {
+      index = 0;
+    }
+    updateMedia();
+  };
 
-    mainWrapper.setAttribute("aria-hidden", "true");
-    lightBoxWrapper.setAttribute("aria-hidden", "false");
-    mainWrapper.style.display = "none";
-    lightBoxWrapper.style.display = "flex";
-
-    prevArrow.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        index--;
-        if (index < 0) {
-          index = lightBoxContainer.length - 1;
-        }
-        updateMedia(index);
-      });
-    });
-
-    nextArrow.forEach((btn) => btn.addEventListener("click", () => {
-      index++;
-      if (index === lightBoxContainer.length) {
-        index = 0;
-      }
-      updateMedia(index);
-    }));
+  const lightBoxKeys = (e) => {
+    if (e.key === "Escape") {
+      closeLightBox();
+    } else if (e.key === "ArrowRight") {
+      next();
+    } else if (e.key === "ArrowLeft") {
+      prev();
+    }
   };
 
   const closeLightBox = () => {
     mainWrapper.setAttribute("aria-hidden", "false");
+    lightBoxWrapper.setAttribute("aria-hidden", "true");
     mainWrapper.style.display = "block";
     lightBoxWrapper.style.display = "none";
 
-    lightBoxContainer.forEach((item) => {
-      item.setAttribute("isSelected", "false");
-    });
-
-    lightBoxWrapper.removeEventListener("keydown", closeModalEscapeKey);
+    prevBtn.removeEventListener("click", prev);
+    nextBtn.removeEventListener("click", next);
+    closeLightBoxBtn.removeEventListener("click", closeLightBox);
+    body.removeEventListener("keydown", lightBoxKeys);
   };
 
-  medias.forEach((media) => media.addEventListener("click", (e) => openLightBox(e)));
-  closeBtn.forEach((btn) =>
-    btn.addEventListener("click", closeLightBox));
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+  closeLightBoxBtn.addEventListener("click", closeLightBox);
+  body.addEventListener("keydown", lightBoxKeys);
 };
-

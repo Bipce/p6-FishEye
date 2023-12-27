@@ -47,8 +47,7 @@ const displayModal = () => {
     }
   }
 
-  modal.addEventListener("keydown", closeModalEscapeKey);
-  modalBg.addEventListener("keydown", closeModalEscapeKey);
+  body.addEventListener("keydown", closeModalEscapeKey);
   closeBtn.addEventListener("keydown", closeModalEnterKey);
   closeBtn.addEventListener("click", closeModal);
 };
@@ -74,4 +73,3 @@ const closeModalEnterKey = (e) => {
     closeModal();
   }
 };
-

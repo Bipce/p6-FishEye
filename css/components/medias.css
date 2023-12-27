@@ -32,7 +32,18 @@
 }
 
 .medias-section__content__heart {
-    width: 18px;
-    height: 18px;
+    font-size: 18px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.medias-section__content__heart[data-liked="true"] {
+    background-clip: text;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    animation-fill-mode: both;
+    transition: .2s
 }

@@ -2,29 +2,26 @@
     display: none;
     align-items: center;
     justify-content: center;
-    position: relative;
     margin-inline: auto;
     height: 100vh;
-}
-
-.lightBox__slide[isSelected=false] {
-    display: none;
+    padding: 3rem;
+    gap: 2rem;
 }
 
 .lightBox__slide {
     display: flex;
     flex-direction: row;
     height: 100%;
-    padding: 3rem;
     gap: 2rem;
 }
 
-.lightBox__slide__left-side,
-.lightBox__slide__right-side {
+.lightBox__left-side,
+.lightBox__right-side {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
 }
 
 .lightBox__slide__content {
@@ -44,11 +41,11 @@
     line-height: 1.5;
 }
 
-.lightBox__slide__right-side__closeBtn,
-.lightBox__slide__right-side__nextBtn {
+.lightBox__right-side__closeBtn,
+.lightBox__right-side__nextBtn {
     height: 50%;
 }
 
-.lightBox__slide__right-side__closeBtn__btn {
+.lightBox__right-side__closeBtn__btn {
     margin-top: 1rem;
 }

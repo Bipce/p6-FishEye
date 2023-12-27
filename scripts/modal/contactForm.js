@@ -19,6 +19,8 @@ const validate = (e) => {
 
   if (isValid) {
     console.log(user);
+    form.reset();
+    closeModal();
   }
 };
 
