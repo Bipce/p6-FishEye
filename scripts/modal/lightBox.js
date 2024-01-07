@@ -1,5 +1,4 @@
 const lightBoxWrapper = document.getElementById("lightBox");
-const mainWrapper = document.getElementById("main-wrapper");
 const lightBoxContent = document.getElementById("lightBox__slide");
 const closeLightBoxBtn = document.querySelector(".lightBox__right-side__closeBtn__btn");
 const prevBtn = document.querySelector(".lightBox__left-side__prevBtn");
@@ -7,7 +6,14 @@ const nextBtn = document.querySelector(".lightBox__right-side__nextBtn");
 
 const initLightBox = (medias) => {
   const mediasEl = document.querySelectorAll(".medias-section__media");
-  mediasEl.forEach((media) => media.addEventListener("click", (e) => openLightBox(e.target, medias)));
+  mediasEl.forEach((mediaEl) => {
+    mediaEl.addEventListener("click", (e) => openLightBox(e.target, medias));
+    mediaEl.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        openLightBox(e.target, medias);
+      }
+    });
+  });
 };
 
 const openLightBox = (mediaElement, medias) => {

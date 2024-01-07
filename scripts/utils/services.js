@@ -28,9 +28,9 @@ const getPhotographer = async (id) => {
 
 const getLikes = () => {
   const likes = document.querySelectorAll("#likes");
-  const sumLikes = document.querySelector(".aside__container__likes");
+  const likesElement = document.querySelector(".aside__container__likes");
   let sum = 0;
 
   likes.forEach(like => sum += parseInt(like.textContent));
-  sumLikes.textContent = sum;
+  return likesElement.textContent = sum;
 };

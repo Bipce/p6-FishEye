@@ -22,7 +22,7 @@ const displayMedia = (medias) => {
       mediasSection.innerHTML += mediaModel.getMediaCardDom();
     }
   });
-  
+
   const photographerMedias = medias.filter((x) => x.photographerId === parseInt(id));
 
   initHearts();
@@ -65,10 +65,7 @@ const init = async () => {
   const photographer = await getPhotographer(parseInt(id));
   const medias = await getMedias();
 
-  medias.sort((a, b) => {
-    return a.likes - b.likes;
-  });
-
+  sortMedias(medias, "popularity");
   displayPhotographer(photographer);
   displayMedia(medias);
   displayAside(photographer, medias);

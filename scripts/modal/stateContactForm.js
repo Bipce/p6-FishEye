@@ -1,5 +1,4 @@
 const modal = document.getElementById("contact-modal");
-const modalBg = document.getElementById("main-wrapper");
 const closeBtn = document.getElementById("close-btn__contact-modal");
 const homeLink = document.querySelector(".header__link");
 const photographerHeader = document.querySelector(".photographer-header");
@@ -28,48 +27,46 @@ const modalBgStyleModalClose = {
   pointerEvents: "inherit",
 };
 
-const displayModal = () => {
+const changeTabIndexElement = (tabIndex) => {
   const photographerInfo = photographerHeader.children[0];
 
-  modalBg.setAttribute("aria-hidden", "true");
-  modal.setAttribute("aria-hidden", "false");
-  Object.assign(modal.style, modalStyle);
-  Object.assign(modalBg.style, modalBgStyleModalOpen);
-
-  homeLink.tabIndex = -1;
-  menu.tabIndex = -1;
-  photographerInfo.tabIndex = -1;
-  mediasSection.children.tabIndex = -1;
+  homeLink.tabIndex = tabIndex;
+  menu.tabIndex = tabIndex;
+  photographerInfo.tabIndex = tabIndex;
+  mediasSection.children.tabIndex = tabIndex;
 
   for (let media of mediasSection.children) {
-    if (media.id === "article") {
-      media.children[0].tabIndex = -1;
-    }
+    media.children[0].tabIndex = tabIndex;
   }
+};
+
+const displayModal = () => {
+  mainWrapper.setAttribute("aria-hidden", "true");
+  modal.setAttribute("aria-hidden", "false");
+  Object.assign(modal.style, modalStyle);
+  Object.assign(mainWrapper.style, modalBgStyleModalOpen);
+
+  changeTabIndexElement(-1);
 
   body.addEventListener("keydown", closeModalEscapeKey);
-  closeBtn.addEventListener("keydown", closeModalEnterKey);
   closeBtn.addEventListener("click", closeModal);
 };
 
+
 const closeModal = () => {
-  modalBg.setAttribute("aria-hidden", "false");
+  mainWrapper.setAttribute("aria-hidden", "false");
   modal.setAttribute("aria-hidden", "true");
-
   modal.style.display = "none";
-  Object.assign(modalBg.style, modalBgStyleModalClose);
+  Object.assign(mainWrapper.style, modalBgStyleModalClose);
 
-  modalBg.removeEventListener("keydown", closeModalEscapeKey);
+  changeTabIndexElement(0);
+
+  body.removeEventListener("keydown", closeModalEscapeKey);
+  closeBtn.removeEventListener("click", closeModal);
 };
 
 const closeModalEscapeKey = (e) => {
   if (e.key === "Escape") {
-    closeModal();
-  }
-};
-
-const closeModalEnterKey = (e) => {
-  if (e.key === "Enter") {
     closeModal();
   }
 };

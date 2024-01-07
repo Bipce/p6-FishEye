@@ -1,7 +1,7 @@
 const sortMedias = (medias, option) => {
   if (option === "popularity") {
     medias.sort((a, b) => {
-      return a.likes - b.likes;
+      return b.likes - a.likes;
     });
   }
 

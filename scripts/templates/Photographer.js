@@ -37,7 +37,7 @@ class Photographer {
         <p class="photographer-header__info__tagline">${this.tagline}</p>
       </div>
       
-      <button class="modal__button btn" onclick="displayModal()">Contactez-moi</button>
+      <button class="modal__button btn" onclick="displayModal()" aria-label="Contactez ${this.name}">Contactez-moi</button>
       
       <div class="img-container">
         <img src="./assets/photographers/Photographers%20ID%20Photos/${this.portrait}" alt="${this.name}" 
