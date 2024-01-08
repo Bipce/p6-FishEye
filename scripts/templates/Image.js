@@ -8,7 +8,7 @@ class Image extends Media {
     return (`
         <article class="medias-section__article" >
           <img src="./../assets/photographers/${this.photographerId}/${this.image}" alt="${this.title}" tabindex="0"
-               class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour aggrandir"
+               class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour agrandir"
                id="${this.id}">
 
           <div class="medias-section__content">

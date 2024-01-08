@@ -7,7 +7,7 @@ class Video extends Media {
   getMediaCardDom() {
     return (`
       <article class="medias-section__article">
-        <video controls class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour aggrandir"
+        <video controls class="medias-section__media" aria-label="${this.title}, ${this.likes} likes, cliquez pour agrandir"
          id="${this.id}">
         <source src="../../assets/photographers/${this.photographerId}/${this.video}" type="video/mp4" />
       </video>
