@@ -1,4 +1,5 @@
 const sortMedias = (medias, option) => {
+
   if (option === "popularity") {
     medias.sort((a, b) => {
       return b.likes - a.likes;
@@ -24,11 +25,4 @@ const sortMedias = (medias, option) => {
       return new Date(b.date) - new Date(a.date);
     });
   }
-};
-
-const onChangeHandler = async (option) => {
-  const medias = await getMedias();
-
-  sortMedias(medias, option);
-  displayMedia(medias);
 };

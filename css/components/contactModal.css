@@ -1,12 +1,30 @@
-#contact-modal {
+.contact-modal {
     display: none;
     scrollbar-width: none;
     width: 50%;
     margin-inline: auto;
+    position: fixed;
+    top: 10%;
+    bottom: 5%;
+    left: 150px;
+    right: 200px;
+    overflow-y: scroll;
 }
 
-#contact-modal::-webkit-scrollbar {
+.contact-modal::-webkit-scrollbar {
     display: none;
+}
+
+.main-wrapper[modalIsOpen="false"] {
+    position: inherit;
+    opacity: 1;
+    pointer-events: inherit;
+}
+
+.main-wrapper[modalIsOpen="true"] {
+    position: relative;
+    opacity: 0.4;
+    pointer-events: none;
 }
 
 .modal__button {

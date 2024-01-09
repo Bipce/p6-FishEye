@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<div id="main-wrapper">
+<div id="main-wrapper" class="main-wrapper" modalIsOpen="false">
   <header id="header" class="header">
     <a href="./" aria-label="lien vers la page d'accueil" class="header__link">
       <img src="assets/images/logo.png" alt="logo" class="header__link__logo" />
@@ -25,7 +25,7 @@
 
     <nav class="menu">
       <label for="filter" class="menu__label">Trier par</label>
-      <select id="filter" class="menu__filter btn" onchange="onChangeHandler(this.options[this.selectedIndex].value)"
+      <select id="filter" class="menu__filter btn"
               aria-label="trier par: popularité, date ou titre">
         <option class="menu__filter__option btn" value="popularity" aria-label="trier par popularité">Popularité
         </option>
@@ -67,7 +67,7 @@
   </div>
 </div>
 
-<div id="contact-modal" aria-hidden="true" role="dialog">
+<div id="contact-modal" class="contact-modal" aria-hidden="true" role="dialog">
   <div class="modal">
     <header class="modal__header">
       <h2 id="modal__header__title" class="modal__header__title"></h2>
@@ -113,10 +113,10 @@
 <script src="scripts/templates/Image.js"></script>
 <script src="scripts/templates/Video.js"></script>
 
-<script src="/scripts/pages/photographer.js"></script>
+<script src="scripts/pages/photographer.js"></script>
 
-<script src="/scripts/modal/stateContactForm.js"></script>
-<script src="/scripts/modal/contactForm.js"></script>
-<script src="/scripts/modal/lightBox.js"></script>
+<script src="scripts/modal/stateContactForm.js"></script>
+<script src="scripts/modal/contactForm.js"></script>
+<script src="scripts/modal/lightBox.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const PHOTOGRAPHERS_FILE = "../../data/photographers.json";
+const PHOTOGRAPHERS_FILE = "./data/photographers.json";
 
 const getPhotographers = async () => {
   const res = await fetch(PHOTOGRAPHERS_FILE);

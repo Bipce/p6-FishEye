@@ -5,28 +5,6 @@ const photographerHeader = document.querySelector(".photographer-header");
 const menu = document.getElementById("filter");
 const mediasSection = document.getElementById("medias-section");
 
-const modalStyle = {
-  display: "block",
-  position: "fixed",
-  top: "10%",
-  bottom: "5%",
-  left: "150px",
-  right: "200px",
-  overflowY: "scroll",
-};
-
-const modalBgStyleModalOpen = {
-  position: "relative",
-  opacity: "0.4",
-  pointerEvents: "none",
-};
-
-const modalBgStyleModalClose = {
-  position: "inherit",
-  opacity: "1",
-  pointerEvents: "inherit",
-};
-
 const changeTabIndexElement = (tabIndex) => {
   const photographerInfo = photographerHeader.children[0];
 
@@ -43,8 +21,8 @@ const changeTabIndexElement = (tabIndex) => {
 const displayModal = () => {
   mainWrapper.setAttribute("aria-hidden", "true");
   modal.setAttribute("aria-hidden", "false");
-  Object.assign(modal.style, modalStyle);
-  Object.assign(mainWrapper.style, modalBgStyleModalOpen);
+  mainWrapper.setAttribute("modalIsOpen", "true");
+  modal.style.display = "block";
 
   changeTabIndexElement(-1);
 
@@ -56,8 +34,8 @@ const displayModal = () => {
 const closeModal = () => {
   mainWrapper.setAttribute("aria-hidden", "false");
   modal.setAttribute("aria-hidden", "true");
+  mainWrapper.setAttribute("modalIsOpen", "false");
   modal.style.display = "none";
-  Object.assign(mainWrapper.style, modalBgStyleModalClose);
 
   changeTabIndexElement(0);
 

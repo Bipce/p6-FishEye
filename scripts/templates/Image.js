@@ -14,7 +14,7 @@ class Image extends Media {
           <div class="medias-section__content">
             <p class="medias-section__content__title">${this.title}</p>
             <p id="likes">${this.likes}</p>
-            <i class="fa-regular fa-heart medias-section__content__heart" data-liked="false"></i>
+            <i class="fa-regular fa-heart medias-section__content__heart" data-liked="false" tabindex="0"></i>
           </div>
         </article>
     `);

@@ -64,6 +64,7 @@ const displayNameContact = (photographer) => {
 const init = async () => {
   const photographer = await getPhotographer(parseInt(id));
   const medias = await getMedias();
+  const filter = document.getElementById("filter");
 
   sortMedias(medias, "popularity");
   displayPhotographer(photographer);
@@ -71,6 +72,12 @@ const init = async () => {
   displayAside(photographer, medias);
   displayNameContact(photographer);
   getLikes();
+
+  filter.addEventListener("change", () => {
+    const option = filter.options[filter.selectedIndex].value;
+    sortMedias(medias, option);
+    displayMedia(medias);
+  });
 };
 
 // noinspection JSIgnoredPromiseFromCall
