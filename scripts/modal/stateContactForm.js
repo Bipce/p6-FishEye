@@ -7,6 +7,7 @@ const mediasSection = document.getElementById("medias-section");
 
 const changeTabIndexElement = (tabIndex) => {
   const photographerInfo = photographerHeader.children[0];
+  const heartsEl = document.querySelectorAll(".medias-section__content__heart");
 
   homeLink.tabIndex = tabIndex;
   menu.tabIndex = tabIndex;
@@ -16,6 +17,8 @@ const changeTabIndexElement = (tabIndex) => {
   for (let media of mediasSection.children) {
     media.children[0].tabIndex = tabIndex;
   }
+
+  heartsEl.forEach(heartEl => heartEl.tabIndex = tabIndex);
 };
 
 const displayModal = () => {
